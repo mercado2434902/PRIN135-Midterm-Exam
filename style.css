@@ -1,146 +1,238 @@
-/* ==========================================================================
-   Task 14: Import Google Fonts
-   Importing 'Poppins' for headers and 'Inter' for body/other text
-   ========================================================================== */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap');
 
-/* ==========================================================================
-   Task 15: Color Theme & Base Typography Setup
-   ========================================================================== */
+* {
+  box-sizing: border-box; 
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
-  --text-color: #2b2d42;
-  --bg-color: #f8f9fa;
-  --nav-bg: #1e293b;
-  --nav-hover: #334155;
-  --border-color: #cbd5e1;
-  --accent-color: #2563eb;
+  --primary-color: #1e3a5f;
+  --primary-light: #2e5a8a;
+  --text-dark: #222222;
+  --text-muted: #555555;
+  --bg-light: #f2f2f2;
+  --border-color: #dddddd;
+  --accent-hover: #3a6073;
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  color: var(--text-color);
-  background-color: var(--bg-color);
   margin: 0;
-  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.5;
+  background: var(--bg-light);
+  color: var(--text-dark);
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Poppins', sans-serif;
+h1, h2, h3 {
+  margin-top: 0;
+  font-family: 'Montserrat', sans-serif;
 }
 
-/* ==========================================================================
-   Task 2 & 3 & 4: Navigation Bar
-   ========================================================================== */
-/* Task 2: Pin the navigation to the top-left */
-nav {
+section {
+  scroll-margin-top: 70px;
+}
+
+.site-nav {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: var(--nav-bg);
-  z-index: 1000;
+  height: 56px;
+  z-index: 10;
+  background: var(--primary-color);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
-/* Task 3: Limit navigation content to 800px and center it horizontally */
-nav .nav-container, nav ul {
+.nav-inner {
   max-width: 800px;
   margin: 0 auto;
-  display: flex;
-  justify-content: space-around;
+  padding: 0 20px;
+}
+
+.nav-brand {
+  float: left;
+  line-height: 56px;
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.nav-links {
+  float: right;
   list-style: none;
+  margin: 0;
   padding: 0;
 }
 
-/* Task 4: Change background color of navigation links on hover */
-nav a {
-  display: block;
-  padding: 15px 20px;
-  color: #ffffff;
+.nav-links li {
+  display: inline-block;   
+}
+
+.nav-links a {
+  display: inline-block;
+  margin: 11px 0 0 6px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  color: #fff;
   text-decoration: none;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.2s ease;
 }
 
-nav a:hover {
-  background-color: var(--nav-hover);
+.nav-links a:hover {
+  background-color: var(--accent-hover);
 }
 
-/* ==========================================================================
-   Task 5, 6 & 7: Header Section
-   ========================================================================== */
-/* Task 5: Limit header content to 760px wide and center it */
-header {
+.site-header {
+  background: var(--primary-color);
+  color: #fff;
+  padding: 106px 20px 50px; 
+}
+
+.header-inner {
   max-width: 760px;
-  margin: 80px auto 0 auto; /* Extra top margin accounts for fixed nav */
-  text-align: center;
+  margin: 0 auto;
 }
 
-/* Task 6: Make the photo frame circle */
-header img, .photo-frame {
-  width: 150px;
-  height: 150px;
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.photo-box {
+  float: left;
+  width: 160px;
+  margin-right: 30px;
+}
+
+.photo-frame {
+  width: 160px;
+  height: 160px;
+  border: 4px solid #fff;
   border-radius: 50%;
+  overflow: hidden;
+  background: var(--primary-light);
+}
+
+.photo {
+  display: block;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
-/* Task 7: Add a bottom border on header links (contact number, email, GitHub) */
-header a, .header-links a {
-  border-bottom: 2px solid var(--accent-color);
-  text-decoration: none;
-  color: var(--text-color);
-  padding-bottom: 2px;
+.header-text {
+  overflow: hidden;
+  padding-top: 25px;
 }
 
-/* ==========================================================================
-   Task 8, 9, 10, 11 & 12: Main Content & Sections
-   ========================================================================== */
-/* Task 8: Limit main content to 800px wide, center it, and add 30px top/bottom space */
-main, .main-content {
-  max-width: 800px;
-  margin: 30px auto;
-  padding: 0 15px;
+.name {
+  margin: 0 0 10px;
+  font-size: 2.5rem;
 }
 
-/* Task 9: Set skill list items side-by-side with padding */
-.skills-list, ul.skills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+.header-links {
   list-style: none;
+  margin: 0 0 15px;
   padding: 0;
 }
 
-.skills-list li, ul.skills li {
+.header-links li {
   display: inline-block;
-  padding: 8px 16px;
-  background-color: #e2e8f0;
-  border-radius: 4px;
+  margin: 0 20px 5px 0;
 }
 
-/* Task 10 & 11: Education Section */
-.education-entry, .education-item {
-  /* Task 10: Add a left border to each education entry */
-  border-left: 4px solid var(--accent-color);
-  padding-left: 15px;
+.header-links a {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  border-bottom: 2px solid #fff;
+  padding-bottom: 2px;
+}
+
+.header-links a:hover {
+  color: #d6e2f0;
+  border-bottom-color: #d6e2f0;
+}
+
+.profile {
+  margin: 0;
+  color: #d6e2f0;
+}
+
+.wrapper {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 25px;
+  margin-bottom: 25px;
+}
+
+.card h2 {
   margin-bottom: 15px;
-  
-  /* Task 11: Pull education year to the right */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #e8eef6;
+  color: var(--primary-color);
 }
 
-/* Task 12: Add 10px bottom spacing to each Achievements list item */
-.achievements-list li, .achievements li {
-  margin-bottom: 10px;
+.skill-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-/* ==========================================================================
-   Task 13: Footer
-   ========================================================================== */
-/* Task 13: Align footer text at the center */
-footer {
-  text-align: center;
-  padding: 20px 0;
-  border-top: 1px solid var(--border-color);
-  margin-top: 30px;
+.skill-list li {
+  display: inline-block;
+  margin: 0 8px 10px 0;
+  padding: 8px 16px;
+  background: #e8eef6;
+  border: 1px solid #c5d3e6;
+  border-radius: 20px;
+  color: var(--primary-color);
+  font-weight: bold;
 }
+
+.entry {
+  position: relative;
+  margin-bottom: 20px;
+  padding-left: 18px;
+  border-left: 4px solid var(--primary-color);
+}
+
+.entry:last-child {
+  margin-bottom: 0;
+}
+
+.entry h3 {
+  margin-bottom: 2px;
+}
+
+.entry p {
+  margin: 0;
+}
+
+.entry-year {
+  float: right;
+  margin-left: 10px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.entry-school {
+  color: var(--primary-light);
+  font-style: italic;
+}
+
+.achievement-list {
+  margin: 0;
